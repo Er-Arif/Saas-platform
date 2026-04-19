@@ -8,6 +8,9 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.egg-info/
+*.egg-info/
+*.tsbuildinfo
 .coverage
 htmlcov/
 *.pyc
@@ -26,4 +29,4 @@ apps/gateway/.venv/
 apps/api/alembic/versions/__pycache__/
 .DS_Store
 Thumbs.db
-
+pytest-cache-files-*/

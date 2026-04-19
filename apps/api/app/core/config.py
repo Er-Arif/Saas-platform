@@ -11,14 +11,16 @@ class Settings(BaseSettings):
     api_debug: bool = Field(default=True, alias="API_DEBUG")
     api_host: str = Field(default="0.0.0.0", alias="API_HOST")
     api_port: int = Field(default=8000, alias="API_PORT")
-    secret_key: str = Field(alias="API_SECRET_KEY")
+    secret_key: str = Field(default="change-me", alias="API_SECRET_KEY")
     access_token_ttl_minutes: int = Field(default=15, alias="API_ACCESS_TOKEN_TTL_MINUTES")
     refresh_token_ttl_days: int = Field(default=30, alias="API_REFRESH_TOKEN_TTL_DAYS")
-    database_url: str = Field(alias="DATABASE_URL")
-    redis_url: str = Field(alias="REDIS_URL")
-    private_storage_path: str = Field(alias="PRIVATE_STORAGE_PATH")
-    public_storage_path: str = Field(alias="PUBLIC_STORAGE_PATH")
-    signed_url_secret: str = Field(alias="SIGNED_URL_SECRET")
+    database_url: str = Field(
+        default="postgresql+psycopg://company:company@localhost:5432/company_platform", alias="DATABASE_URL"
+    )
+    redis_url: str = Field(default="redis://localhost:6379/0", alias="REDIS_URL")
+    private_storage_path: str = Field(default="storage/private", alias="PRIVATE_STORAGE_PATH")
+    public_storage_path: str = Field(default="storage/public", alias="PUBLIC_STORAGE_PATH")
+    signed_url_secret: str = Field(default="change-me-too", alias="SIGNED_URL_SECRET")
     allowed_origins_raw: str = Field(default="", alias="API_ALLOWED_ORIGINS")
     root_domain: str = Field(default="company.local", alias="ROOT_DOMAIN")
     razorpay_key_id: str = Field(default="", alias="RAZORPAY_KEY_ID")
@@ -36,4 +38,3 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
-
