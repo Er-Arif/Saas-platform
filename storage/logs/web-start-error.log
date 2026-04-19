@@ -1,0 +1,21 @@
+ ⨯ Error: {"detail":"Missing credentials"}
+    at g (E:\MyProjects\Saas platform\apps\web\.next\server\app\api\admin\releases\route.js:1:7023)
+    at async h (E:\MyProjects\Saas platform\apps\web\.next\server\app\dashboard\page.js:1:1258) {
+  digest: '1409097165'
+}
+ ⨯ Error: Internal Server Error
+    at g (E:\MyProjects\Saas platform\apps\web\.next\server\app\api\admin\releases\route.js:1:7023)
+    at async h (E:\MyProjects\Saas platform\apps\web\.next\server\app\dashboard\page.js:1:1258) {
+  digest: '818780201'
+}
+ ⨯ Error: Internal Server Error
+    at g (E:\MyProjects\Saas platform\apps\web\.next\server\app\api\admin\releases\route.js:1:7023)
+    at async h (E:\MyProjects\Saas platform\apps\web\.next\server\app\dashboard\page.js:1:1258) {
+  digest: '818780201'
+}
+ ⨯ Error: {"detail":"Missing credentials"}
+    at g (E:\MyProjects\Saas platform\apps\web\.next\server\app\api\admin\releases\route.js:1:7023)
+    at async h (E:\MyProjects\Saas platform\apps\web\.next\server\app\dashboard\page.js:1:1258) {
+  digest: '1409097165'
+}
+^C^C
