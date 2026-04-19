@@ -72,7 +72,7 @@ python database/seeds/seed_demo.py
 
 ```powershell
 cmd /c npm run dev
-python -m uvicorn app.main:app --app-dir apps/api/app --reload --port 8000
+python -m uvicorn app.main:app --app-dir apps/api --reload --port 8000
 python -m uvicorn gateway.main:app --app-dir apps/gateway --reload --port 8100
 ```
 
@@ -116,4 +116,3 @@ python -m uvicorn gateway.main:app --app-dir apps/gateway --reload --port 8100
 3. Connect the Next.js forms and tables to live API queries and mutations.
 4. Add signed object storage and background job workers for production delivery.
 5. Provision a GitHub remote and push the existing phase commits.
-

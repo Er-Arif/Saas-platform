@@ -1,9 +1,14 @@
 from __future__ import annotations
 
 from logging.config import fileConfig
+from pathlib import Path
+import sys
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.append(str(ROOT / "apps" / "api"))
 
 from app.core.database import Base
 from app.models import *  # noqa: F403
@@ -39,4 +44,3 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
-

@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=69.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "company-platform-api"
 version = "0.1.0"
@@ -19,7 +23,10 @@ dependencies = [
   "uvicorn[standard]>=0.32.0"
 ]
 
-[tool.pytest.ini_options]
-pythonpath = ["."]
-testpaths = ["tests"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
 
+[tool.pytest.ini_options]
+pythonpath = [".", "apps/api", "apps/gateway"]
+testpaths = ["tests"]
