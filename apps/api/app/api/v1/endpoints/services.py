@@ -14,3 +14,14 @@ def gateway_readiness(db: Session = Depends(get_db)) -> dict[str, int]:
         "logged_requests": db.query(ApiRequestLog).count(),
     }
 
+
+@router.get("/api-key-environments")
+def api_key_environments() -> dict[str, list[str]]:
+    return {"environments": ["test", "live"]}
+
+
+@router.get("/tenant-mapping")
+def tenant_mapping() -> dict[str, str]:
+    return {
+        "customer_tenant_reference": "Maps platform organizations to independently managed service-side tenants."
+    }

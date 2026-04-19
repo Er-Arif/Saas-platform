@@ -1,11 +1,14 @@
 import uuid
 
-from fastapi import FastAPI, Header, HTTPException
+from time import perf_counter
+
+from fastapi import FastAPI, Header, HTTPException, Request
 
 from gateway.config import get_gateway_settings
 
 settings = get_gateway_settings()
 app = FastAPI(title="Company Platform Gateway", version="0.1.0")
+REQUEST_LOGS: list[dict[str, object]] = []
 
 
 SERVICE_REGISTRY = {
@@ -20,6 +23,25 @@ SERVICE_REGISTRY = {
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok", "service": "gateway"}
+
+
+@app.middleware("http")
+async def request_logger(request: Request, call_next):
+    started = perf_counter()
+    response = await call_next(request)
+    request_id = str(uuid.uuid4())
+    duration_ms = round((perf_counter() - started) * 1000)
+    response.headers["X-Request-Id"] = request_id
+    REQUEST_LOGS.append(
+        {
+            "request_id": request_id,
+            "path": request.url.path,
+            "method": request.method,
+            "status_code": response.status_code,
+            "duration_ms": duration_ms,
+        }
+    )
+    return response
 
 
 @app.api_route("/v1/{service_slug}/{path:path}", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
@@ -43,3 +65,7 @@ def route_service(
         "message": "Gateway starter resolved route. Replace this stub with signed upstream forwarding.",
     }
 
+
+@app.get("/logs")
+def logs() -> dict[str, list[dict[str, object]]]:
+    return {"items": REQUEST_LOGS[-50:]}
