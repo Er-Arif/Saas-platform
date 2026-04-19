@@ -5,12 +5,11 @@ import { services } from "../../lib/content";
 export default function ServicesPage() {
   return (
     <Section
-      eyebrow="Services"
-      title="Public APIs, internal managed services, and service tenant readiness."
-      description="Use service exposure type and customer tenant references to keep public products and internal-managed capabilities organized."
+      eyebrow="Future Scope"
+      title="Hosted services and APIs are reserved for a later launch phase."
+      description="The data model remains extensible, but the current business platform is intentionally product-first."
     >
-      <DataTable title="Service catalog" columns={["Service", "Exposure", "Host", "Billing", "Visibility"]} rows={services} />
+      <DataTable title="Reserved scope" columns={["Area", "Exposure", "Host", "Billing", "Visibility"]} rows={services} />
     </Section>
   );
 }
-

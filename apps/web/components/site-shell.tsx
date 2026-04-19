@@ -28,7 +28,7 @@ export function SiteShell({ children }: PropsWithChildren) {
           <Button href="/login" tone="ghost">
             Login
           </Button>
-          <Button href="/request-demo">Request Demo</Button>
+          <Button href="/request-demo">Talk to Sales</Button>
         </div>
       </header>
       {children}
@@ -37,7 +37,7 @@ export function SiteShell({ children }: PropsWithChildren) {
           <div>
             <p className="font-display text-lg font-semibold">Acme SaaS Labs</p>
             <p className="mt-3 text-sm leading-6 text-slate-600">
-              Company platform for software commerce, licensing, hosted services, billing, and support.
+              Your own software store for product sales, private downloads, machine licensing, renewals, and support.
             </p>
           </div>
           <div>
@@ -48,10 +48,10 @@ export function SiteShell({ children }: PropsWithChildren) {
             </ul>
           </div>
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Services</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Platform Capabilities</p>
             <ul className="mt-4 space-y-2 text-sm text-slate-600">
-              <li>Authentication Service</li>
-              <li>API Gateway onboarding</li>
+              <li>Signed downloads</li>
+              <li>License verification and updates</li>
             </ul>
           </div>
           <div>
@@ -67,4 +67,3 @@ export function SiteShell({ children }: PropsWithChildren) {
     </div>
   );
 }
-

@@ -6,8 +6,8 @@ export default function PricingPage() {
   return (
     <Section
       eyebrow="Pricing"
-      title="Flexible pricing across software products, managed deployments, and APIs."
-      description="The platform supports one-time, recurring, usage-based, hybrid, and enterprise-custom models with GST-aware invoicing."
+      title="Flexible pricing for licensed software, installer access, and support."
+      description="The platform supports one-time, recurring, hybrid, and enterprise-custom product billing with GST-aware invoicing."
     >
       <div className="grid gap-6 lg:grid-cols-3">
         {pricingHighlights.map((item) => (
@@ -17,4 +17,3 @@ export default function PricingPage() {
     </Section>
   );
 }
-

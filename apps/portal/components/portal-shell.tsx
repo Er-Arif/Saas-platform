@@ -18,7 +18,7 @@ export function PortalShell({ children }: PropsWithChildren) {
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-300">Customer Portal</p>
             <h1 className="mt-4 font-display text-2xl font-semibold">Sunrise Foods Pvt Ltd</h1>
             <p className="mt-3 text-sm leading-6 text-slate-300">
-              Organization-owned purchases, downloads, billing, API access, and support.
+              Organization-owned purchases, installers, licenses, renewals, and support.
             </p>
           </div>
           <nav className="mt-10 grid gap-2">
@@ -38,4 +38,3 @@ export function PortalShell({ children }: PropsWithChildren) {
     </div>
   );
 }
-

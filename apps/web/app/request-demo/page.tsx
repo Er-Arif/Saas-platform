@@ -7,10 +7,10 @@ export default function RequestDemoPage() {
     <Section
       eyebrow="Request demo"
       title="Book a guided walkthrough for your team."
-      description="Demo requests feed directly into the lead pipeline so admin users can schedule and track enterprise conversations."
+      description="Demo requests feed directly into the lead pipeline so your team can qualify product fit, rollout size, and licensing requirements."
     >
       <InquiryForm
-        description="Choose the product or service you want to evaluate and share your goals."
+        description="Choose the product you want to evaluate and share your deployment goals."
         fields={["Name", "Work email", "Company", "Preferred date"]}
         title="Request a demo"
       />

@@ -12,7 +12,7 @@ const display = Sora({ subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
   title: "Developer Docs",
-  description: "Authentication Service and API gateway onboarding docs."
+  description: "Desktop product integration docs for licensing, updates, and secure downloads."
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
@@ -26,8 +26,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
             </Link>
             <nav className="flex flex-wrap gap-5 text-sm text-slate-300">
               <Link href="/">Overview</Link>
-              <Link href="/auth-service">Auth Service</Link>
-              <Link href="/api-gateway">API Gateway</Link>
+              <Link href="/desktop-products">Desktop Products</Link>
+              <Link href="/api-gateway">Future Scope</Link>
             </nav>
           </header>
           <main className="py-12">{children}</main>
@@ -36,4 +36,3 @@ export default function RootLayout({ children }: PropsWithChildren) {
     </html>
   );
 }
-

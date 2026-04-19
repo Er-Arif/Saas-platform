@@ -17,7 +17,7 @@ export function AdminShell({ children }: PropsWithChildren) {
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-300">Admin Panel</p>
           <h1 className="mt-4 font-display text-2xl font-semibold">Platform Operations</h1>
           <p className="mt-3 text-sm leading-6 text-slate-300">
-            Internal management console for products, services, finance, leads, support, and audit visibility.
+            Internal management console for products, finance, release distribution, licensing, support, and audit visibility.
           </p>
           <nav className="mt-10 grid gap-2">
             {adminNav.map((item) => (
@@ -36,4 +36,3 @@ export function AdminShell({ children }: PropsWithChildren) {
     </div>
   );
 }
-

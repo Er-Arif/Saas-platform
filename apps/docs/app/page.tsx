@@ -5,23 +5,22 @@ import { FeatureCard, Section } from "@company/ui";
 export default function DocsHomePage() {
   return (
     <Section
-      eyebrow="Developer Docs"
-      title="Integrate hosted services without mixing them into platform auth."
-      description="These docs focus on services sold by the company platform, starting with the Authentication Service and the public API gateway layer."
+      eyebrow="Product Docs"
+      title="Connect desktop products to licensing, updates, and secure distribution."
+      description="These docs focus on software products sold through the company platform, starting with the Restaurant POS integration path."
     >
       <div className="grid gap-6 lg:grid-cols-2">
-        <FeatureCard title="Authentication Service" description="Hosted auth product at auth.company.com with tenant references, API keys, and environment-aware onboarding." />
-        <FeatureCard title="API Gateway" description="Central entry at api.company.com for versioned service routing, rate limits, request logging, and future service expansion." />
+        <FeatureCard title="Desktop Product Integration" description="Activate machines, verify licenses, check updates, and fetch entitled installers from the platform." />
+        <FeatureCard title="Future Services Scope" description="The architecture still leaves room for hosted services later, but today's docs stay product-first." />
       </div>
       <div className="mt-8 flex gap-4">
-        <Link className="rounded-full bg-brand-600 px-5 py-3 text-sm font-semibold text-white" href="/auth-service">
-          Read auth docs
+        <Link className="rounded-full bg-brand-600 px-5 py-3 text-sm font-semibold text-white" href="/desktop-products">
+          Read product integration docs
         </Link>
         <Link className="rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white" href="/api-gateway">
-          Read gateway docs
+          Read roadmap notes
         </Link>
       </div>
     </Section>
   );
 }
-

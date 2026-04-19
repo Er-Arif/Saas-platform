@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Acme SaaS Labs",
-  description: "Parent SaaS company platform for products, APIs, billing, licensing, and support."
+  description: "Software product platform for catalog, billing, licensing, secure downloads, and updates."
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
@@ -18,4 +18,3 @@ export default function RootLayout({ children }: PropsWithChildren) {
     </html>
   );
 }
-

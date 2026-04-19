@@ -2,7 +2,6 @@ import type { AppLink, MarketingStat, ProductSummary, ServiceSummary } from "@co
 
 export const navigation: AppLink[] = [
   { label: "Products", href: "/products" },
-  { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "Docs", href: "/docs" },
   { label: "Support", href: "/support" },
@@ -10,9 +9,9 @@ export const navigation: AppLink[] = [
 ];
 
 export const stats: MarketingStat[] = [
-  { label: "Organizations served", value: "120+", detail: "Growing portfolio across retail, healthcare, and developer tooling." },
-  { label: "Platform-ready workflows", value: "9", detail: "Commerce, billing, licensing, support, docs, and service access under one hub." },
-  { label: "API requests/month", value: "18M+", detail: "Architecture prepared for productized public APIs and private service routing." }
+  { label: "Products ready to ship", value: "2", detail: "Launch installable and enterprise software from one branded platform." },
+  { label: "Private release workflow", value: "4 layers", detail: "Catalog, checkout, license issuance, and signed distribution work together." },
+  { label: "Licensed devices tracked", value: "3 per plan", detail: "Machine-bound activation and renewals are modeled from day one." }
 ];
 
 export const products: ProductSummary[] = [
@@ -20,7 +19,7 @@ export const products: ProductSummary[] = [
     id: "product-restaurant-pos",
     slug: "restaurant-pos",
     name: "Restaurant POS Software",
-    shortDescription: "POS, kitchen, inventory, franchise reporting, and GST-ready billing for restaurants.",
+    shortDescription: "Windows-first restaurant POS with store-managed downloads, machine licensing, version rollout, and renewal support.",
     category: "Business Operations",
     accessModel: "hybrid",
     pricingModel: "monthly_subscription",
@@ -40,26 +39,25 @@ export const products: ProductSummary[] = [
 
 export const services: ServiceSummary[] = [
   {
-    id: "service-auth",
-    slug: "authentication-service",
-    name: "Authentication Service",
-    shortDescription: "Hosted auth APIs for sign-in, OTP, identity verification, and tenant-aware security flows.",
-    category: "Identity & Access",
+    id: "future-scope",
+    slug: "future-services-scope",
+    name: "Future API and Service Scope",
+    shortDescription: "Reserved architecture for APIs and managed services once the product marketplace is fully established.",
+    category: "Roadmap",
     billingModel: "hybrid",
-    serviceExposureType: "public_api",
-    featured: true
+    serviceExposureType: "hybrid",
+    featured: false
   }
 ];
 
 export const valueProps = [
-  "Centralized commerce and billing without forcing a shared end-user identity across unrelated products.",
-  "Private download delivery, license entitlements, and organization-level account ownership designed for serious B2B operations.",
-  "Developer service monetization with API keys, gateway routing, usage visibility, and future-ready webhook foundations."
+  "Sell downloadable and deployable business software from your own branded store instead of a generic marketplace.",
+  "Deliver installers privately, issue licenses per organization, and control machine activations without exposing raw files publicly.",
+  "Roll out product updates, release notes, and renewal flows from one platform while keeping each product's internal auth independent."
 ];
 
 export const pricingHighlights = [
-  { name: "Product subscriptions", detail: "Monthly and yearly software plans, renewals, and entitlement-aware downloads." },
-  { name: "One-time licensing", detail: "License-based delivery for installable business software and enterprise rollouts." },
-  { name: "Hosted service billing", detail: "Subscription, usage-based, and hybrid models for APIs and managed services." }
+  { name: "License subscriptions", detail: "Monthly and yearly software plans with activation limits, renewals, and update eligibility." },
+  { name: "One-time deployments", detail: "License-based delivery for installable products and enterprise rollout packages." },
+  { name: "Future-ready expansion", detail: "The platform keeps room for services and APIs later without cluttering today's product-first experience." }
 ];
-

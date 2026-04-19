@@ -6,11 +6,10 @@ export default function CatalogPage() {
   return (
     <Section
       eyebrow="Catalog"
-      title="Products, services, pricing, and visibility controls."
-      description="This module is where product managers and service managers shape what is publicly sold and how entitlements are expressed."
+      title="Products, pricing, release metadata, and visibility controls."
+      description="This module is where product managers shape what is publicly sold and how licenses, downloads, and update eligibility are expressed."
     >
       <DataTable title="Catalog entries" columns={["Name", "Type", "Access / Exposure", "Featured", "Status"]} rows={catalog} />
     </Section>
   );
 }
-

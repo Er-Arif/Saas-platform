@@ -7,8 +7,8 @@ export default function PortalOverviewPage() {
     <div className="space-y-8">
       <Section
         eyebrow="Overview"
-        title="Your company platform command center."
-        description="See subscription health, product access, billing activity, API usage, and support status in one place."
+        title="Your software operations command center."
+        description="See license health, product access, version rollout, billing activity, and support status in one place."
       >
         <div className="grid gap-4 lg:grid-cols-4">
           {overviewCards.map((card) => (
@@ -21,4 +21,3 @@ export default function PortalOverviewPage() {
     </div>
   );
 }
-

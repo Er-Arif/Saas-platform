@@ -7,8 +7,8 @@ export default function AdminOverviewPage() {
     <div className="space-y-8">
       <Section
         eyebrow="Overview"
-        title="Run the software business from one internal console."
-        description="Keep catalog, billing, licensing, support, and service operations aligned without collapsing customer-facing product identities into one global account system."
+        title="Run the software product business from one internal console."
+        description="Keep catalog, billing, release delivery, licensing, and support aligned without collapsing customer-facing product identities into one global account system."
       >
         <div className="grid gap-4 lg:grid-cols-4">
           {adminCards.map((card) => (
@@ -20,4 +20,3 @@ export default function AdminOverviewPage() {
     </div>
   );
 }
-

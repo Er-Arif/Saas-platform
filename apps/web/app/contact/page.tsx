@@ -6,7 +6,7 @@ export default function ContactPage() {
   return (
     <Section
       eyebrow="Contact"
-      title="Talk to our team about products, services, partnerships, or support."
+      title="Talk to our team about products, rollouts, licensing, or support."
       description="This form maps to the platform contact request workflow so leads can be triaged from the admin panel."
     >
       <InquiryForm
@@ -17,4 +17,3 @@ export default function ContactPage() {
     </Section>
   );
 }
-

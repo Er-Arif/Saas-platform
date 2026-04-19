@@ -8,8 +8,8 @@ export default function ProductsPage() {
   return (
     <Section
       eyebrow="Products"
-      title="Business software products ready for sales, delivery, and renewals."
-      description="Filterable catalog patterns can expand here later; this starter ships the real information architecture and content structure."
+      title="Software products ready for sales, licensing, release delivery, and renewals."
+      description="This storefront is designed to grow into your own product marketplace for installable business software."
     >
       <div className="grid gap-6 lg:grid-cols-2">
         {products.map((product) => (
@@ -29,4 +29,3 @@ export default function ProductsPage() {
     </Section>
   );
 }
-

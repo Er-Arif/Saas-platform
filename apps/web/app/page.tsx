@@ -2,25 +2,26 @@ import Link from "next/link";
 
 import { Button, FeatureCard, MetricCard, Section } from "@company/ui";
 
-import { products, services, stats, valueProps } from "../lib/content";
+import { products, stats, valueProps } from "../lib/content";
 
 export default function HomePage() {
   return (
     <>
       <section className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:px-10 lg:py-24">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-600">SaaS company platform</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-600">Software product platform</p>
           <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold tracking-tight text-slate-950 lg:text-7xl">
-            Sell software, manage licenses, and grow API services from one serious business hub.
+            Build your own software store for product sales, licensing, updates, and secure distribution.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Acme SaaS Labs gives your software business a premium public presence plus the operational platform behind
-            products, hosted services, billing, downloads, licenses, and customer support.
+            Acme SaaS Labs now acts as the commercial backbone for installable and enterprise software. Sell your
+            products, issue licenses, publish releases, deliver installers privately, and support customers from one
+            polished platform.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href="/products">Explore Products</Button>
-            <Button href="/services" tone="secondary">
-              Browse Services
+            <Button href="/docs" tone="secondary">
+              View Integration Docs
             </Button>
           </div>
         </div>
@@ -33,8 +34,8 @@ export default function HomePage() {
 
       <Section
         eyebrow="Why choose us"
-        title="Purpose-built for software companies with both products and services."
-        description="The platform keeps company commerce centralized while respecting that each downstream product may have its own independent user model."
+        title="Purpose-built for companies shipping licensed desktop and enterprise software."
+        description="The platform centralizes billing, downloads, renewals, and support while each downstream product keeps its own internal runtime and user model."
       >
         <div className="grid gap-6 lg:grid-cols-3">
           {valueProps.map((item, index) => (
@@ -42,7 +43,7 @@ export default function HomePage() {
               description={item}
               key={item}
               meta={`Capability 0${index + 1}`}
-              title={["Business-ready platform auth", "Private software delivery", "Monetized developer services"][index] ?? "Capability"}
+              title={["Product store presence", "Private software delivery", "Product update lifecycle"][index] ?? "Capability"}
             />
           ))}
         </div>
@@ -72,34 +73,16 @@ export default function HomePage() {
       </Section>
 
       <Section
-        eyebrow="Featured Services"
-        title="Hosted capabilities that developers and businesses can subscribe to under your company domain."
-        actions={<Button href="/services" tone="secondary">View all services</Button>}
+        eyebrow="How it works"
+        title="A release and licensing workflow built around real desktop software."
+        description="This platform is ready to work like your own Microsoft Store or Play Store for business software, starting with Restaurant POS."
       >
         <div className="grid gap-6 lg:grid-cols-3">
-          {services.map((service) => (
-            <FeatureCard
-              description={service.shortDescription}
-              key={service.slug}
-              meta={service.serviceExposureType.replaceAll("_", " ")}
-              title={service.name}
-            />
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Testimonials"
-        title="Proof blocks are ready for live customer stories."
-        description="Keep these placeholders during implementation, then replace them with verified testimonials and logos as your portfolio grows."
-      >
-        <div className="grid gap-6 lg:grid-cols-3">
-          <FeatureCard title="Multi-outlet operations" description="Placeholder for a restaurant group expanding from 3 to 25 outlets with POS, kitchen, and franchise reporting." />
-          <FeatureCard title="Healthcare modernization" description="Placeholder for a hospital network replacing manual workflows with a centralized HIS deployment." />
-          <FeatureCard title="Developer onboarding" description="Placeholder for an engineering team integrating the Authentication Service through the gateway and portal." />
+          <FeatureCard title="1. Sell the product" description="Showcase a product page, pricing, deployment path, and sales/demo CTA from the public website." />
+          <FeatureCard title="2. Issue entitlements" description="Grant organization-owned licenses, invoices, renewals, and download access after purchase." />
+          <FeatureCard title="3. Verify and update" description="Desktop products can call the platform to activate machines, verify licenses, and fetch the newest entitled release." />
         </div>
       </Section>
     </>
   );
 }
-

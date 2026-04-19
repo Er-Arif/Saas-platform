@@ -5,7 +5,7 @@ export default function AboutPage() {
     <Section
       eyebrow="About"
       title="We build software businesses around durable operations, not fragile demos."
-      description="This company platform exists to help Acme SaaS Labs market, sell, deliver, support, and scale software products and hosted services with a single commercial backbone."
+      description="This company platform exists to help Acme SaaS Labs market, sell, deliver, support, and scale software products with a single commercial backbone."
     >
       <div className="grid gap-6 lg:grid-cols-3">
         <FeatureCard title="Commercial backbone" description="Orders, invoices, subscriptions, licenses, downloads, and support all live on the parent company platform." />
@@ -15,4 +15,3 @@ export default function AboutPage() {
     </Section>
   );
 }
-

@@ -7,10 +7,9 @@ export default function LicensesPage() {
     <Section
       eyebrow="Licenses"
       title="Software license and activation management."
-      description="Track keys, activation counts, expiry windows, machine binding, and linked service tenants without mixing them into product-internal user systems."
+      description="Track keys, activation counts, expiry windows, machine binding, and release eligibility without mixing them into product-internal user systems."
     >
       <DataTable title="Active licenses" columns={["Identifier", "Status", "Usage", "Expiry", "Notes"]} rows={licenses} />
     </Section>
   );
 }
-
