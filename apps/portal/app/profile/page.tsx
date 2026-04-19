@@ -5,7 +5,7 @@ export default function ProfilePage() {
     <Section
       eyebrow="Profile & Security"
       title="Manage profile, company, and security settings."
-      description="The architecture is ready for password changes, session management, email verification, and future 2FA rollout without conflating it with the external Authentication Service."
+      description="The architecture is ready for password changes, session management, email verification, and future 2FA rollout without conflating platform access with product-internal authentication."
     >
       <div className="grid gap-6 lg:grid-cols-3">
         <FeatureCard title="Organization profile" description="Legal name, GSTIN, billing email, and operating details belong to the organization." />
@@ -15,4 +15,3 @@ export default function ProfilePage() {
     </Section>
   );
 }
-

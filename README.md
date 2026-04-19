@@ -1,15 +1,15 @@
 # Company Platform
 
-Production-style monorepo for a SaaS company platform that sells downloadable software products and hosted services/APIs.
+Production-style monorepo for a software company platform that sells downloadable and deployable software products.
 
 ## What is included
 
 - `apps/web`: public company website and marketing/catalog flows
 - `apps/portal`: customer dashboard for organization-owned assets
 - `apps/admin`: internal operations console
-- `apps/docs`: developer documentation starter
-- `apps/api`: FastAPI backend for auth, catalog, billing, licensing, support, and admin APIs
-- `apps/gateway`: public API gateway starter for service routing, rate limiting, and request logging
+- `apps/docs`: product integration documentation starter
+- `apps/api`: FastAPI backend for auth, catalog, billing, licensing, support, and product-client APIs
+- `apps/gateway`: future-ready gateway starter kept for later service expansion
 - `packages/ui`: shared React UI primitives
 - `packages/types`: shared TypeScript domain types
 - `packages/sdk`: starter fetch client
@@ -21,10 +21,10 @@ Production-style monorepo for a SaaS company platform that sells downloadable so
 ## Core architecture
 
 - Platform Auth is only for `company.com`, `app.company.com`, and `admin.company.com`
-- Authentication Service is a separate sellable hosted service at `auth.company.com`
 - Commercial assets belong to organizations, not individual users
 - Products may keep independent product-internal auth and tenants
-- `api.company.com` is the gateway layer for versioned public service traffic
+- The active platform focus is product commerce, distribution, licensing, updates, and support
+- Future services and APIs remain possible later without defining today's experience around them
 
 ## Local setup
 
@@ -86,17 +86,16 @@ python -m uvicorn gateway.main:app --app-dir apps/gateway --reload --port 8100
 
 - organization-first identity and memberships
 - marketing website and catalog pages
-- customer portal pages for downloads, licenses, billing, services, support
+- customer portal pages for downloads, licenses, billing, products, and support
 - admin console pages for operations
-- product and service catalog schema
+- product catalog schema plus future-ready service scope
 - pricing plans, orders, subscriptions, invoices, payments
 - India-first billing abstractions with Razorpay primary and Cashfree-ready support
 - GST invoice fields and helper calculations
-- private download file metadata
-- license registry, devices, activations, and events
-- API clients, keys, usage summaries, tenant references, and webhooks
+- private download file metadata and signed delivery
+- license registry, devices, activations, events, and product-client verification endpoints
 - support tickets, messages, and lead intake records
-- API gateway starter with request logging
+- future-ready gateway starter with request logging
 
 ## Phase commit history
 
@@ -114,5 +113,5 @@ python -m uvicorn gateway.main:app --app-dir apps/gateway --reload --port 8100
 1. Install dependencies and run the local stack.
 2. Replace demo billing/provider stubs with live Razorpay flows.
 3. Connect the Next.js forms and tables to live API queries and mutations.
-4. Add signed object storage and background job workers for production delivery.
-5. Provision a GitHub remote and push the existing phase commits.
+4. Replace demo private files with real installer uploads and signed object storage in production.
+5. Wire each desktop product to the `product-client` endpoints for activation, verification, update checks, and downloads.

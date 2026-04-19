@@ -23,11 +23,10 @@ export default async function ServiceDetailPage({
       actions={<Button href="/docs">Documentation entry</Button>}
     >
       <div className="grid gap-6 lg:grid-cols-3">
-        <FeatureCard title="Billing model" description={service.billingModel.replaceAll("_", " ")} />
+        <FeatureCard title="Launch status" description="Not active yet. The current platform focus is your software product marketplace." />
         <FeatureCard title="Exposure type" description={service.serviceExposureType.replaceAll("_", " ")} />
-        <FeatureCard title="Gateway readiness" description="Designed to route through api.company.com with rate limits, logging, and versioning." />
+        <FeatureCard title="Future readiness" description="The schema and gateway starter remain available when you decide to launch APIs later." />
       </div>
     </Section>
   );
 }
-

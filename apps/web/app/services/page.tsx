@@ -7,9 +7,9 @@ import { services } from "../../lib/content";
 export default function ServicesPage() {
   return (
     <Section
-      eyebrow="Services"
-      title="Hosted APIs and managed capabilities under your company domain."
-      description="Services are listed, sold, and managed from the parent platform while staying deployable on separate subdomains."
+      eyebrow="Future Scope"
+      title="Hosted services and APIs are reserved for a later launch phase."
+      description="This platform is intentionally focused on software products today. Service capabilities remain possible later without shaping the current customer experience."
     >
       <div className="grid gap-6 lg:grid-cols-2">
         {services.map((service) => (
@@ -21,7 +21,7 @@ export default function ServicesPage() {
             <h2 className="mt-4 font-display text-3xl font-semibold text-slate-950">{service.name}</h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">{service.shortDescription}</p>
             <Link className="mt-6 inline-flex text-sm font-semibold text-brand-700" href={`/services/${service.slug}`}>
-              Open service page
+              View roadmap note
             </Link>
           </article>
         ))}
@@ -29,4 +29,3 @@ export default function ServicesPage() {
     </Section>
   );
 }
-

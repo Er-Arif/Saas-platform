@@ -7,7 +7,7 @@ export default function SignupPage() {
     <Section
       eyebrow="Platform Auth"
       title="Create your organization account."
-      description="Signing up creates a company-platform account and a default organization for billing, purchases, downloads, API access, and support."
+      description="Signing up creates a company-platform account and a default organization for billing, purchases, downloads, licenses, and support."
     >
       <InquiryForm
         description="Connect this form to `/api/v1/auth/signup`."
@@ -17,4 +17,3 @@ export default function SignupPage() {
     </Section>
   );
 }
-
