@@ -2,9 +2,33 @@ import Link from "next/link";
 
 import { Button, FeatureCard, MetricCard, Section } from "@company/ui";
 
-import { products, stats, valueProps } from "../lib/content";
+import { getCatalogProducts } from "../lib/platform";
+import { valueProps } from "../lib/content";
 
-export default function HomePage() {
+function formatAccessModel(value: string) {
+  return value.replaceAll("_", " ");
+}
+
+export default async function HomePage() {
+  const products = await getCatalogProducts();
+  const featuredProducts = products.slice(0, 3);
+  const stats = [
+    {
+      label: "Products in catalog",
+      value: String(products.length),
+      detail: "Manage software listings, releases, plans, and documentation from one connected platform.",
+    },
+    {
+      label: "Distribution workflow",
+      value: "Live",
+      detail: "Private uploads, version history, signed downloads, and release visibility are now wired together.",
+    },
+    {
+      label: "Licensing model",
+      value: "Org-first",
+      detail: "Purchases, licenses, downloads, and support stay attached to organizations instead of scattered users.",
+    },
+  ];
   return (
     <>
       <section className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:px-10 lg:py-24">
@@ -55,14 +79,14 @@ export default function HomePage() {
         actions={<Button href="/products" tone="secondary">View all products</Button>}
       >
         <div className="grid gap-6 lg:grid-cols-2">
-          {products.map((product) => (
+          {featuredProducts.map((product) => (
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm" key={product.slug}>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">{product.category}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">Product listing</p>
               <h3 className="mt-4 font-display text-2xl font-semibold text-slate-950">{product.name}</h3>
-              <p className="mt-4 text-sm leading-7 text-slate-600">{product.shortDescription}</p>
+              <p className="mt-4 text-sm leading-7 text-slate-600">{product.short_description}</p>
               <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                <span>{product.accessModel.replaceAll("_", " ")}</span>
-                <span>{product.pricingModel.replaceAll("_", " ")}</span>
+                <span>{formatAccessModel(product.access_model)}</span>
+                <span>{formatAccessModel(product.pricing_model)}</span>
               </div>
               <Link className="mt-6 inline-flex text-sm font-semibold text-brand-700" href={`/products/${product.slug}`}>
                 View product details

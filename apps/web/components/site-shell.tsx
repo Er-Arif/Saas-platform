@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Manrope, Sora } from "next/font/google";
 import type { PropsWithChildren } from "react";
+import { cookies } from "next/headers";
 
 import { Button, cn } from "@company/ui";
 
@@ -9,7 +10,14 @@ import { navigation } from "../lib/content";
 const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
 const display = Sora({ subsets: ["latin"], variable: "--font-display" });
 
-export function SiteShell({ children }: PropsWithChildren) {
+export async function SiteShell({ children }: PropsWithChildren) {
+  const store = await cookies();
+  const userEmail = store.get("platform_user_email")?.value;
+  const signedIn = Boolean(store.get("platform_access_token")?.value);
+  const nav = [
+    ...navigation,
+    ...(signedIn ? [{ label: "Dashboard", href: "/dashboard" }, { label: "Admin", href: "/admin/products" }] : []),
+  ];
   return (
     <div className={cn(sans.variable, display.variable, "min-h-screen bg-sand text-ink")}>
       <div className="absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(49,127,220,0.18),_transparent_56%)]" />
@@ -18,17 +26,31 @@ export function SiteShell({ children }: PropsWithChildren) {
           Acme SaaS Labs
         </Link>
         <nav className="hidden items-center gap-6 lg:flex">
-          {navigation.map((item) => (
+          {nav.map((item) => (
             <Link className="text-sm font-medium text-slate-600 transition hover:text-slate-950" href={item.href} key={item.href}>
               {item.label}
             </Link>
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Button href="/login" tone="ghost">
-            Login
-          </Button>
-          <Button href="/request-demo">Talk to Sales</Button>
+          {signedIn ? (
+            <>
+              <span className="hidden text-sm text-slate-500 lg:inline">{userEmail}</span>
+              <form action="/api/auth/logout" method="post">
+                <button className="text-sm font-semibold text-slate-700 transition hover:text-brand-700" type="submit">
+                  Logout
+                </button>
+              </form>
+              <Button href="/dashboard">Open workspace</Button>
+            </>
+          ) : (
+            <>
+              <Button href="/login" tone="ghost">
+                Login
+              </Button>
+              <Button href="/request-demo">Talk to Sales</Button>
+            </>
+          )}
         </div>
       </header>
       {children}

@@ -1,11 +1,14 @@
+from pathlib import Path
 from functools import lru_cache
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+ROOT_ENV_FILE = Path(__file__).resolve().parents[4] / ".env"
+
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(env_file=str(ROOT_ENV_FILE), extra="ignore")
 
     api_env: str = Field(default="development", alias="API_ENV")
     api_debug: bool = Field(default=True, alias="API_DEBUG")
