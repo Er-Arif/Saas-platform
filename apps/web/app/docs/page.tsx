@@ -1,0 +1,13 @@
+import { Button, Section } from "@company/ui";
+
+export default function DocsPage() {
+  return (
+    <Section
+      eyebrow="Documentation"
+      title="Developer docs live on a dedicated subdomain."
+      description="The company site acts as the discovery layer, while the full docs experience is hosted separately for service onboarding, API references, and integration guides."
+      actions={<Button href="http://localhost:3003">Open docs site</Button>}
+    />
+  );
+}
+
