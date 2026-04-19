@@ -1,3 +1,4 @@
+import hashlib
 from datetime import UTC, datetime, timedelta
 from typing import Any
 
@@ -54,3 +55,6 @@ def create_refresh_token(user_id: str, organization_id: str) -> str:
         extra={"organization_id": organization_id},
     )
 
+
+def hash_token(token: str) -> str:
+    return hashlib.sha256(token.encode("utf-8")).hexdigest()

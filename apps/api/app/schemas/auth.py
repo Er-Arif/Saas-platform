@@ -18,3 +18,12 @@ class TokenResponse(BaseModel):
     refresh_token: str
     token_type: str = "bearer"
 
+
+class RefreshRequest(BaseModel):
+    refresh_token: str
+
+
+class UserContextResponse(BaseModel):
+    user_id: str
+    email: EmailStr
+    organization_id: str

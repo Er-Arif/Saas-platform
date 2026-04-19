@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
+from app.core.dependencies import require_admin_user
 from app.models.catalog import Product, Service
 from app.models.commerce import Invoice, Order, Payment, Subscription
 from app.models.identity import Organization, User
@@ -13,7 +14,10 @@ router = APIRouter()
 
 
 @router.get("/stats")
-def stats(db: Session = Depends(get_db)) -> dict[str, int]:
+def stats(
+    _: User = Depends(require_admin_user),
+    db: Session = Depends(get_db),
+) -> dict[str, int]:
     return {
         "customers": db.query(Organization).count(),
         "users": db.query(User).count(),
@@ -30,4 +34,3 @@ def stats(db: Session = Depends(get_db)) -> dict[str, int]:
         "settings": db.query(SystemSetting).count(),
         "audit_logs": db.query(AuditLog).count(),
     }
-

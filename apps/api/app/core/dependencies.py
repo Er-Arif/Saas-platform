@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 from app.core.database import get_db
 from app.core.security import decode_token
-from app.models.identity import OrganizationMembership, User
+from app.models.identity import OrganizationMembership, Role, User, UserRole
 
 token_scheme = HTTPBearer(auto_error=False)
 
@@ -35,3 +35,20 @@ def require_organization_membership(
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="No active organization membership")
     return membership
 
+
+def require_admin_user(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> User:
+    if current_user.is_superuser:
+        return current_user
+    role_names = (
+        db.query(Role.name)
+        .join(UserRole, UserRole.role_id == Role.id)
+        .filter(UserRole.user_id == current_user.id)
+        .all()
+    )
+    allowed = {"super_admin", "admin", "billing_admin", "support_agent", "product_manager", "service_manager"}
+    if not any(name for (name,) in role_names if name in allowed):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Admin access required")
+    return current_user
