@@ -1,14 +1,10 @@
 import Link from "next/link";
-import { Manrope, Sora } from "next/font/google";
 import type { PropsWithChildren } from "react";
 import { cookies } from "next/headers";
 
 import { Button, cn } from "@company/ui";
 
 import { navigation } from "../lib/content";
-
-const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
-const display = Sora({ subsets: ["latin"], variable: "--font-display" });
 
 export async function SiteShell({ children }: PropsWithChildren) {
   const store = await cookies();
@@ -19,7 +15,7 @@ export async function SiteShell({ children }: PropsWithChildren) {
     ...(signedIn ? [{ label: "Dashboard", href: "/dashboard" }, { label: "Admin", href: "/admin/products" }] : []),
   ];
   return (
-    <div className={cn(sans.variable, display.variable, "min-h-screen bg-sand text-ink")}>
+    <div className={cn("min-h-screen bg-sand font-sans text-ink")}>
       <div className="absolute inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_top,_rgba(49,127,220,0.18),_transparent_56%)]" />
       <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
         <Link className="font-display text-xl font-semibold tracking-tight text-slate-950" href="/">
