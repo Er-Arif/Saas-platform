@@ -1,0 +1,8 @@
+FROM python:3.13-slim
+
+WORKDIR /app
+COPY apps/gateway /app/apps/gateway
+RUN pip install --no-cache-dir -e /app/apps/gateway
+
+CMD ["uvicorn", "gateway.main:app", "--app-dir", "/app/apps/gateway", "--host", "0.0.0.0", "--port", "8100"]
+
